@@ -159,7 +159,7 @@ const App: FC = () => {
 
     // 第一次点击时播放bgm
     const bgmRef = useRef<HTMLAudioElement>(null);
-    const [bgmOn, setBgmOn] = useState<boolean>(false);
+    const [bgmOn, setBgmOn] = useState<boolean>(true);
     const [once, setOnce] = useState<boolean>(false);
     useEffect(() => {
         if (!bgmRef.current) return;
@@ -445,7 +445,7 @@ const App: FC = () => {
                 <audio
                     ref={bgmRef}
                     loop
-                    src={curTheme?.bgm || '/sound-disco.mp3'}
+                    src={curTheme?.bgm || '/早安午安晚安.mp3'}
                 />
             </button>
 
