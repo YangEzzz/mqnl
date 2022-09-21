@@ -8,16 +8,16 @@ const imagesUrls = import.meta.glob('./images/*.png', {
     eager: true,
 });
 
-const fishes = Object.entries(imagesUrls).map(([key, value]) => ({
+const mqnl = Object.entries(imagesUrls).map(([key, value]) => ({
     name: key.slice(9, -4),
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     content: <img src={value} alt="" />,
 }));
 
-export const fishermanTheme: Theme<DefaultSoundNames> = {
-    name: '钓鱼佬',
-    icons: fishes.map(({ name, content }) => ({
+export const mqnlTheme: Theme<DefaultSoundNames> = {
+    name: '明前奶绿',
+    icons: mqnl.map(({ name, content }) => ({
         name,
         content,
         clickSound: 'button-click',
