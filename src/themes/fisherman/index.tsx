@@ -9,6 +9,7 @@ import nya from '../fisherman/sounds/关注明前奶绿nya.mp3'
 import white from '../fisherman/sounds/喜欢白丝.mp3'
 import maolei from '../fisherman/sounds/猫雷.mp3'
 import chicken from '../fisherman/sounds/绿色肥鸡.mp3'
+import night from '../fisherman/sounds/早安午安晚安.mp3'
 
 const imagesUrls = import.meta.glob('./images/*.png', {
     import: 'default',
@@ -23,7 +24,8 @@ type SoundNames =
     | '关注明前奶绿nya'
     | '喜欢白丝'
     | '猫雷'
-    | '绿色肥鸡';
+    | '绿色肥鸡'
+    | '早安午安晚安';
 
 const pictureSoundMap: Record<string, SoundNames> = {
     ['olk']: 'olk',
@@ -44,6 +46,7 @@ const sounds: { name: SoundNames; src: string }[] = [
     { name: '喜欢白丝', src: white },
     { name: '猫雷', src: maolei },
     { name: '绿色肥鸡', src: chicken },
+    { name: '早安午安晚安', src: night },
 ];
 
 const mqnl = Object.entries(imagesUrls).map(([key, value]) => ({
@@ -59,7 +62,7 @@ export const mqnlTheme: Theme<SoundNames> = {
         name,
         content,
         clickSound: pictureSoundMap[name],
-        tripleSound: '一滴都没有了',
+        tripleSound: '早安午安晚安',
     })),
     sounds,
 };

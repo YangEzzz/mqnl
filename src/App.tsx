@@ -445,7 +445,7 @@ const App: FC = () => {
                 <audio
                     ref={bgmRef}
                     loop
-                    src={curTheme?.bgm || '/早安午安晚安.mp3'}
+                    src={curTheme?.bgm}
                 />
             </button>
 
