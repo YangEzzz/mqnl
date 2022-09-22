@@ -1,18 +1,17 @@
-// 钓鱼佬主题
+// 明前奶绿主题
 import React from 'react';
 import { Theme } from '../interface';
-import ea from '../fisherman/sounds/呃啊.mp3'
-import e from '../fisherman/sounds/呃.mp3'
-import damie from '../fisherman/sounds/打咩.mp3'
-import nya from '../fisherman/sounds/nya.mp3'
-import white from '../fisherman/sounds/白丝.mp3'
-import guanzhu from '../fisherman/sounds/关注明前奶绿nya.mp3'
-import maolei from '../fisherman/sounds/猫雷.mp3'
-import fish from '../fisherman/sounds/鱼人语.mp3'
-import night from '../fisherman/sounds/早安午安晚安.mp3'
+import ea from '../mqnl/sounds/呃啊.mp3';
+import e from '../mqnl/sounds/呃.mp3';
+import damie from '../mqnl/sounds/打咩.mp3';
+import nya from '../mqnl/sounds/nya.mp3';
+import white from '../mqnl/sounds/白丝.mp3';
+import guanzhu from '../mqnl/sounds/关注明前奶绿nya.mp3';
+import maolei from '../mqnl/sounds/猫雷.mp3';
+import fish from '../mqnl/sounds/鱼人语.mp3';
+// import night from '../mqnl/sounds/早安午安晚安.mp3'
 
-import soundTripleUrl from '../default/sounds/sound-triple.mp3';
-
+import soundTripleUrl from '../mqnl/sounds/sound-triple.mp3';
 
 const imagesUrls = import.meta.glob('./images/*.png', {
     import: 'default',

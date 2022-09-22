@@ -9,9 +9,9 @@ import React, {
 import './App.css';
 import { GithubIcon } from './GithubIcon';
 import { randomString, waitTimeout } from './utils';
-import { defaultTheme } from './themes/default';
 import { Icon, Theme } from './themes/interface';
-import { mqnlTheme } from './themes/fisherman';
+import { mqnlTheme } from './themes/mqnl';
+import { Button, Modal } from 'antd';
 
 // 主题
 const themes = [mqnlTheme];
@@ -161,6 +161,20 @@ const App: FC = () => {
     const bgmRef = useRef<HTMLAudioElement>(null);
     const [bgmOn, setBgmOn] = useState<boolean>(true);
     const [once, setOnce] = useState<boolean>(false);
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+    const showModal = () => {
+        console.log(1);
+        setIsModalOpen(true);
+    };
+    const handleOk = () => {
+        undo();
+        setIsModalOpen(false);
+    };
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+    };
     useEffect(() => {
         if (!bgmRef.current) return;
         if (bgmOn) {
@@ -358,7 +372,7 @@ const App: FC = () => {
             setLevel(level + 1);
             setQueue([]);
             checkCover(makeScene(level + 1, curTheme.icons));
-            soundRefMap.current['关注明前奶绿nya'].play()
+            soundRefMap.current['关注明前奶绿nya'].play();
         } else {
             setQueue(updateQueue);
             checkCover(updateScene);
@@ -410,12 +424,28 @@ const App: FC = () => {
                     </div>
                 </div>
             </div>
+            <Modal
+                title="明前奶绿小姐"
+                footer={[
+                    <Button key="back" onClick={handleCancel}>
+                        就不撤回！
+                    </Button>,
+                    <Button key="submit" type="primary" onClick={handleOk}>
+                        好好好
+                    </Button>,
+                ]}
+                open={isModalOpen}
+                onOk={handleOk}
+                onCancel={handleCancel}
+            >
+                <p>想撤销？mua一口！</p>
+            </Modal>
             <div className="queue-container flex-container flex-center" />
             <div className="flex-container flex-between">
                 <button className="flex-grow" onClick={pop}>
                     弹出
                 </button>
-                <button className="flex-grow" onClick={undo}>
+                <button className="flex-grow" onClick={showModal}>
                     撤销
                 </button>
                 <button className="flex-grow" onClick={wash}>
@@ -443,11 +473,7 @@ const App: FC = () => {
             {/*bgm*/}
             <button className="bgm-button" onClick={() => setBgmOn(!bgmOn)}>
                 {bgmOn ? '🔊' : '🔈'}
-                <audio
-                    ref={bgmRef}
-                    loop
-                    src={curTheme?.bgm}
-                />
+                <audio ref={bgmRef} loop src={curTheme?.bgm} />
             </button>
 
             {/*音效*/}
