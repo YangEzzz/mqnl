@@ -11,6 +11,9 @@ import maolei from '../fisherman/sounds/猫雷.mp3'
 import fish from '../fisherman/sounds/鱼人语.mp3'
 import night from '../fisherman/sounds/早安午安晚安.mp3'
 
+import soundTripleUrl from '../default/sounds/sound-triple.mp3';
+
+
 const imagesUrls = import.meta.glob('./images/*.png', {
     import: 'default',
     eager: true,
@@ -24,7 +27,8 @@ type SoundNames =
     | '白丝'
     | '猫雷'
     | '鱼人语'
-    | '关注明前奶绿nya';
+    | '关注明前奶绿nya'
+    | 'triple';
 
 const pictureSoundMap: Record<string, SoundNames> = {
     ['olk']: '呃',
@@ -44,7 +48,7 @@ const sounds: { name: SoundNames; src: string }[] = [
     { name: '白丝', src: white },
     { name: '猫雷', src: maolei },
     { name: '鱼人语', src: fish },
-    
+    { name: 'triple', src: soundTripleUrl },
     { name: '关注明前奶绿nya', src: guanzhu },
 ];
 
@@ -61,7 +65,7 @@ export const mqnlTheme: Theme<SoundNames> = {
         name,
         content,
         clickSound: pictureSoundMap[name],
-        tripleSound: '关注明前奶绿nya',
+        tripleSound: 'triple',
     })),
     sounds,
 };

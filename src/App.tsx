@@ -307,7 +307,7 @@ const App: FC = () => {
 
         // 点击音效
         if (soundRefMap.current) {
-            console.log(soundRefMap.current, symbol.icon);
+            // console.log(soundRefMap.current, symbol.icon);
             soundRefMap.current[symbol.icon.clickSound].currentTime = 0;
             soundRefMap.current[symbol.icon.clickSound].play();
         }
@@ -358,6 +358,7 @@ const App: FC = () => {
             setLevel(level + 1);
             setQueue([]);
             checkCover(makeScene(level + 1, curTheme.icons));
+            soundRefMap.current['关注明前奶绿nya'].play()
         } else {
             setQueue(updateQueue);
             checkCover(updateScene);
